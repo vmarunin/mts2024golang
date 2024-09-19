@@ -6,13 +6,13 @@ import (
 	"os"
 )
 
-func ExampleDefer() {
-	ExampleDeferStack()
+func main() {
+	// ExampleDeferStack()
 	// ExampleDeferRegular()
 	// ExampleDeferParams()
 	// ExampleDeferReturn()
 	// ExampleDeferPanic()
-	// ExampleDeferFile()
+	ExampleDeferFile()
 }
 
 func ExampleDeferStack() {

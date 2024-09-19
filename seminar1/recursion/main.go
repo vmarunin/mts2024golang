@@ -12,7 +12,7 @@ const MOD = 1_000_000_007
 
 func main() {
 	ts := time.Now()
-	out := fib(1_000_000)
+	out := fib(4_000_000)
 	duration := time.Since(ts)
 	fmt.Println(out)
 	fmt.Println(duration)

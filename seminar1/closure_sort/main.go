@@ -9,11 +9,11 @@ import (
 	"strings"
 )
 
-func ExampleClosure() {
-	ExampleClosureSimple()
+func main() {
+	// ExampleClosureSimple()
 	// ExampleClosureLikeObject()
 	// ExampleClosureHTTPServer()
-	// ExampleClosureSort()
+	ExampleClosureSort()
 }
 
 func ExampleClosureSimple() {
