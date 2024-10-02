@@ -43,9 +43,9 @@ func NewServer(
 	mux.HandleFunc("POST /api/v1/task", server.CreateTask)
 	mux.HandleFunc("GET /api/v1/log", server.GetLog)
 
-	mux.HandleFunc("GET /api/v1/simple/name", server.SimpleName)
-	mux.HandleFunc("GET /api/v1/auth/name", server.AuthName)
-	mux.HandleFunc("GET /start", server.Start)
+	// mux.HandleFunc("GET /api/v1/simple/name", server.SimpleName)
+	// mux.HandleFunc("GET /api/v1/auth/name", server.AuthName)
+	// mux.HandleFunc("GET /start", server.Start)
 
 	server.srv = &http.Server{
 		Addr: ":" + cfg.GetPort(),
