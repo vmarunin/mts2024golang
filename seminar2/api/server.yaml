@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: MTSGolang2024 Seminar2 - OpenAPI 3.0
+  description: Students should implements server
+  version: 1.0.0
+paths:
+  /api/v1/simple/name:
+    get:
+      description: Returns student's name
+      operationId: simple-name
+      responses:
+        '200':
+          description: Device token and type updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NameResponse'
+        '400':
+          description: Bad request 
+        '500':
+          description: Server error
+  /api/v1/auth/name:
+    get:
+      description: Returns student's name only with auth
+      operationId: simple-name-auth
+      responses:
+        '200':
+          description: Returns student's name 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NameResponse'
+        '400':
+          description: Bad request 
+        '401':
+          description: Unauthorized
+        '500':
+          description: Server error
+      security:
+        - bearerAuth: []
+
+components:
+  schemas:
+    NameResponse:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: Student's name
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+
+
+

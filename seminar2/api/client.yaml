@@ -1,0 +1,72 @@
+openapi: 3.0.3
+info:
+  title: MTSGolang2024 Seminar2 - OpenAPI 3.0
+  description: Students should implements client for this API
+  version: 1.0.0
+paths:
+  /api/v1/task:
+    post:
+      summary: Create task
+      description: Register task
+      operationId: create-task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiCreateTask'
+      responses:
+        '200':
+          description: Task created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiCreateTaskResponse'
+        '400':
+          description: Bad request 
+        '500':
+          description: Bad user server 
+      security:
+        - bearerAuth: []
+  /api/v1/log:
+    get:
+      summary: Get log
+      description: Get log
+      operationId: get-log
+      responses:
+        '200':
+          description: Log
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+        '500':
+          description: Server error
+
+components:
+  schemas:
+    ApiCreateTask:
+      type: object
+      required:
+        - url
+      properties:
+        url:
+          type: string
+          description: User server url
+    ApiCreateTaskResponse:
+      type: object
+      required:
+        - status
+        - token
+      properties:
+        token:
+          type: string
+          description: Password for server
+        status:
+          type: string
+          description: Status of task
+        info:
+          type: string
+          description: Text info about task run
